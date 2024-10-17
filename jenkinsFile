@@ -15,16 +15,12 @@ pipeline {
             }
         }
         
-        stage('SonarQube Analysis') {
+       stage('SonarQube') {
             steps {
-                // Commande pour analyser le code avec SonarQube
-                sh '''
-                    mvn sonar:sonar \
-                    -Dsonar.projectKey=pipeline \
-                    -Dsonar.host.url=http://localhost:9000 \
-                    -Dsonar.login=Jenkins Token
-                '''
-            }
-        }
+             sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=Sonarsonar1* -Dmaven.test.skip=true';
+           }
+       }
+           
+
     }
 }
