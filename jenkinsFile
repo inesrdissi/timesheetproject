@@ -18,7 +18,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 // Commande pour analyser le code avec SonarQube
-                sh 'mvn sonar:sonar'
+                sh 'mvn sonar:sonar -Dsonar.projectKey=pipeline -Dsonar.host.url=http://localhost:9000'
             }
         }
     }
